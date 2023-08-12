@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from '../searchBar/searchBar';
 
 import './Header.css';
+import CartButton from '../CartButton/CartButton';
 
 
 function Header() {
@@ -10,7 +11,7 @@ function Header() {
       <div className="container">
       
         <SearchBar/>
-        <button>cart</button>
+        <CartButton/>
       </div>
     </header>
   );
