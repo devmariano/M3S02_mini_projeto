@@ -18,7 +18,7 @@ function Products() {
       {/* {
         products.map((product) => <p key={product.title}>{product.title}</p>)
       } */}
-      <ProductCard/>
+      <ProductCard data={{}}/>
     </section>
   );
 }
