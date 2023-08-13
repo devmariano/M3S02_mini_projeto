@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import './searchBar.css';
 import fetchProducts from '../../api/fetchProdutcs';
+import AppContext from '../context/AppContext';
 
 function SearchBar() {
   const[searchValue, setSearchValue] = useState('');
+
+  const {name} = useContext(AppContext);
 
   const handleSearch = async(event) => {
     event.preventDefault();
@@ -16,6 +19,7 @@ function SearchBar() {
 
   return (
     <form className="search-bar" onSubmit={handleSearch}>
+      {name}
       <input 
         type="search" 
         value={searchValue}
