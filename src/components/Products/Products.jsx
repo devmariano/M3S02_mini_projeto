@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './Products.css';
 import fetchProducts from '../../api/fetchProdutcs';
 import ProductCard from '../ProductCard/ProductCard';
+import Loading from '../Loading/Loading';
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -15,6 +16,7 @@ function Products() {
 
   return ( 
     <section className="products container">
+      <Loading/>
       {/* {
         products.map((product) => <p key={product.title}>{product.title}</p>)
       } */}
