@@ -6,26 +6,22 @@ import Loading from '../Loading/Loading';
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchProducts('iphone').then((response) => {
       setProducts(response);
+      setLoading(false);
     });
   },[]);
-  console.log(products);
+
 
   return ( 
-    <section className="products container">
-      <Loading/>
-      {/* {
-        products.map((product) => <p key={product.title}>{product.title}</p>)
-      } */}
-      {
-        products.map((product) => <ProductCard key={product.id} data={product} />)
-      }
-      
-      {/* <ProductCard data={{}}/> */}
-    </section>
+    (loading && <Loading/>) || (
+      <section className="products container">
+        {products.map((product) => <ProductCard key={product.id} data={product} />)}
+      </section>
+    )
   );
 }
 
