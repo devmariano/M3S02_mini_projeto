@@ -1,19 +1,25 @@
 import React from 'react';
+import propTypes from 'prop-types';
+
 import {BsFillCartDashFill} from 'react-icons/bs';
 
 import './CartItem.css';
+import formatCurrency from '../../utils/formatCurrency';
 
-function CartItem() {
+function CartItem( {data}) {
+
+  const {thumbnail, title, price} = data;
+
   return ( 
     <section className="cart-item">
       <img 
-        src="" 
+        src={thumbnail} 
         alt="imagem do produto"
         className="cart-item-image" 
       />
       <div className="cart-item-content">
-        <h3 className="cart-item-title">Titulo do produto</h3>
-        <h3 className="cart-item-price">R$1090,00</h3>
+        <h3 className="cart-item-title">{title}</h3>
+        <h3 className="cart-item-price">{formatCurrency(price)}</h3>
 
         <button 
           type="button" 
@@ -27,3 +33,7 @@ function CartItem() {
 }
 
 export default CartItem;
+
+CartItem.propTypes = {
+  data: propTypes.object
+}.isRequired;
