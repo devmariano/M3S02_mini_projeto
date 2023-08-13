@@ -4,11 +4,11 @@ import AppContext from './AppContext';
 
 function Provider( {children} ) {
 
-  const [name, setName] = useState('Teste context');
+  const [products, setProducts] = useState([]);
 
   const value= {
-    name,
-    setName
+    products, 
+    setProducts,
   };
 
   return ( 

@@ -5,21 +5,21 @@ import fetchProducts from '../../api/fetchProdutcs';
 import AppContext from '../context/AppContext';
 
 function SearchBar() {
+
   const[searchValue, setSearchValue] = useState('');
 
-  const {name} = useContext(AppContext);
+  const { setProducts } = useContext(AppContext);
 
   const handleSearch = async(event) => {
     event.preventDefault();
 
     const products = await fetchProducts(searchValue);
-    console.log(products);
+    setProducts(products);
     setSearchValue('');
   };
 
   return (
     <form className="search-bar" onSubmit={handleSearch}>
-      {name}
       <input 
         type="search" 
         value={searchValue}
