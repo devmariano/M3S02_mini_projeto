@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-function pageNotFound() {
+function PageNotFound() {
   return (
     <>
       Página 404 nada encontrado!
@@ -12,4 +12,4 @@ function pageNotFound() {
 
 
 
-export default pageNotFound;
+export default PageNotFound;
