@@ -1,19 +1,27 @@
 import React from 'react';
-import Header from './components/Header/Header';
-import Products from './components/Products/Products';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PageHome from './pages/pageHome';
+import PageProducts from './pages/pageProducts';
 import Provider from './components/context/Provider';
-import Cart from './components/Cart/Cart';
-import Footer from './components/Footer/Footer';
+
+
 
 
 function App() {
   return (
-    <Provider>
-      <Header/>
-      <Products/>
-      <Cart/>
-      <Footer/>
-    </Provider>
+    <div>
+      <Provider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<PageHome/>}/>
+            <Route path="/produtos"  element={<PageProducts/>} />
+            <Route path="/carrinho" />
+            <Route path="/checkout" />
+            <Route path="*"  />
+          </Routes>
+        </Router>
+      </Provider>
+    </div>
   );
 }
 

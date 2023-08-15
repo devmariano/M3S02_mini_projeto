@@ -1,9 +1,9 @@
 import React from 'react';
 import SearchBar from '../searchBar/searchBar';
 import logo from '../../images/logo_megaoferta.png';
-
 import './Header.css';
 import CartButton from '../CartButton/CartButton';
+import NavBar from '../NavBar/navBar';
 
 
 function Header() {
@@ -16,6 +16,7 @@ function Header() {
         <SearchBar/>
         <CartButton/>
       </div>
+      <NavBar/>
     </header>
   );
 }
