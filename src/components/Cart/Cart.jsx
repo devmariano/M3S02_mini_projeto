@@ -15,6 +15,7 @@ function Cart() {
 
   return ( 
     <section className={`cart ${isCartVisible ? 'cart--active' : ''}`}>
+      <span className="cart-items-title">RESUMO DO CARRINHO</span>
       <div className="cart-items">
         {cartItems.map((cartItem) => <CartItem key={cartItem.id} data={cartItem} />)}
       </div>

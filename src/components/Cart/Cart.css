@@ -26,6 +26,13 @@
  border-top: 1px solid #ddd;
 }
 
+.cart-items-title{
+  padding-bottom: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
 .cart-items .cart-item:last-child{
   border-bottom: none;
 }
