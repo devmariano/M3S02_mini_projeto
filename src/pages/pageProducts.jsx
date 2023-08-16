@@ -5,10 +5,6 @@ import Footer from '../components/Footer/Footer';
 import Cart from '../components/Cart/Cart';
 
 
-
-
-
-
 function PageProducts() {
   return (
     <>

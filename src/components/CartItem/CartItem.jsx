@@ -5,7 +5,7 @@ import {BsFillCartDashFill} from 'react-icons/bs';
 
 import './CartItem.css';
 import formatCurrency from '../../utils/formatCurrency';
-import AppContext from '../context/AppContext';
+import AppContext from '../../context/AppContext';
 
 function CartItem( {data}) {
 
