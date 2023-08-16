@@ -3,7 +3,7 @@ import './ProductCard.css';
 import {BsCartPlusFill} from 'react-icons/bs';
 import propTypes from 'prop-types';
 import formatCurrency from '../../utils/formatCurrency';
-import AppContext from '../context/AppContext';
+import AppContext from '../../context/AppContext';
 
 function ProductCard({data}) {
   const {title, thumbnail, price}  = data;

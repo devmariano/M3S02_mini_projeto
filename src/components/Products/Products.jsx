@@ -3,7 +3,7 @@ import './Products.css';
 import fetchProducts from '../../api/fetchProdutcs';
 import ProductCard from '../ProductCard/ProductCard';
 import Loading from '../Loading/Loading';
-import AppContext from '../context/AppContext';
+import AppContext from '../../context/AppContext';
 
 function Products() {
   const {products, setProducts, loading, setLoading} = useContext(AppContext);
@@ -11,6 +11,7 @@ function Products() {
   useEffect(() => {
     fetchProducts('iphone').then((response) => {
       setProducts(response);
+      console.log(response);
       setLoading(false);
     });
   },[]);
