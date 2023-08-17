@@ -18,7 +18,9 @@ function Header() {
           <Link to={'/'}><img src={logo} alt="Logotipo" /></Link>
         </div>
         {!isCartOrCheckoutRoute && <SearchBar/>}
-        {!isCartOrCheckoutRoute && <CartButton/>}
+        <div className="cart-icon">
+          {!isCartOrCheckoutRoute && <CartButton/>}
+        </div>
       </div>
       <NavBar/>
     </header>
