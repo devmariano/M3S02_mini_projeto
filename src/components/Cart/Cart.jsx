@@ -17,7 +17,7 @@ function Cart() {
         {cartItems.map((cartItem) => <CartItem key={`${cartItem.id}`} data={cartItem}/>)}
       </div>
       <div className="cart-resume">{formatCurrency(totalPrice, 'BRL')}</div>
-      <Link to={'/carrinho'}><button className="go-cart-button">Concluir compra</button></Link>
+      <Link to={'/carrinho'}><button className="go-cart-button">IR PARA O CARRINHO</button></Link>
     </section>
   );
 }

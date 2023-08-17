@@ -4,18 +4,21 @@ import logo from '../../images/logo_megaoferta.png';
 import './Header.css';
 import CartButton from '../CartButton/CartButton';
 import NavBar from '../NavBar/navBar';
-import { Link } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
 
 function Header() {
+  const location = useLocation();
+
+  const isCartOrCheckoutRoute = location.pathname === '/carrinho' || location.pathname === '/checkout';
+
   return (
     <header className="header">
       <div className="container">
         <div className="logo-wrapper">
           <Link to={'/'}><img src={logo} alt="Logotipo" /></Link>
         </div>
-        <SearchBar/>
-        <CartButton/>
+        {!isCartOrCheckoutRoute && <SearchBar/>}
+        {!isCartOrCheckoutRoute && <CartButton/>}
       </div>
       <NavBar/>
     </header>
