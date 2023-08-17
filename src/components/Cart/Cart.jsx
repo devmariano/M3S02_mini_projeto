@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-
+import { Link } from 'react-router-dom';
 import './Cart.css';
 import CartItem from '../CartItem/CartItem';
 import AppContext from '../../context/AppContext';
@@ -17,7 +17,7 @@ function Cart() {
         {cartItems.map((cartItem) => <CartItem key={`${cartItem.id}`} data={cartItem}/>)}
       </div>
       <div className="cart-resume">{formatCurrency(totalPrice, 'BRL')}</div>
-      <button className="go-cart-button">Concluir compra</button>
+      <Link to={'/carrinho'}><button className="go-cart-button">Concluir compra</button></Link>
     </section>
   );
 }
