@@ -2,7 +2,9 @@ import CartItem from '../CartItem/CartItem';
 import AppContext from '../../context/AppContext';
 import './CartPage.css';
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import formatCurrency from '../../utils/formatCurrency';
+import {BsCart2,BsCreditCard,BsFillCheckCircleFill,BsArrowRight} from 'react-icons/bs';
 
 
 
@@ -13,18 +15,27 @@ function CartPage() {
   return ( 
 
     <div>
-      <span className="cart-info container">breadcrumb</span>
+      <span className="cart-info container">
+        <span className="cart-info-detail"><BsCart2/> Carrinho</span>
+        <span><BsArrowRight/></span>
+        <span><BsCreditCard/> Pagamento</span>
+        <span><BsArrowRight/></span>
+        <span><BsFillCheckCircleFill/> Concluído</span>
+      </span>
       <section className="cart-page container">
-        <div className="cart-box">
+        <div className="cart-box-list">
           <span className="cart-resume-title">RESUMO DO CARRINHO</span>
-          <div>
-            {cartItems.map((cartItem) => <CartItem key={`${cartItem.id}-${Math.floor(Math.random() * 10)}`} data={cartItem} />)}
+          <div className="cart-resume-list">
+            {cartItems.map((cartItem) => <CartItem key={cartItem.id} data={cartItem} />)}
           </div>
         </div>
-        <div className="cart-box">
+        <div className="cart-box-action">
+          <div className="cart-resume-title">TOTAL DA COMPRA</div>
           <div className="cart-resume-price">{formatCurrency(totalPrice, 'BRL')}</div>
-          <button>Voltar as compras</button>
-          <button>Prosseguir ao checkout</button>
+          <div className="cart_page_buttons">
+            <Link to={'/produtos'} className="return-button">CONTINUAR COMPRANDO</Link>
+            <Link to={'/checkout'} className="checkout-button">IR PARA O CHECKOUT</Link>
+          </div>
         </div>
       </section>
     </div>
