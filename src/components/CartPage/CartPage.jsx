@@ -8,19 +8,7 @@ import formatCurrency from '../../utils/formatCurrency';
 
 function CartPage() {
 
-  const { cartItems } = useContext(AppContext);
-
-
-  const totalPrice = cartItems.reduce((acc, item) => {
-    return item.price + acc;
-  },0);
-
-  // const updateQuantity = (itemId, newQuantity) => {
-  //   const updatedItems = cartItems.map((item) =>
-  //     item.id === itemId ? { ...item, quantity: newQuantity } : item
-  //   );
-  //   setCartItems(updatedItems);
-  // };
+  const { cartItems, totalPrice } = useContext(AppContext);
 
   return ( 
 
