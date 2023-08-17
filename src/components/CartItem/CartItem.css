@@ -7,6 +7,13 @@
   position: relative;
 }
 
+.cart-item-details{
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  gap: 6px;
+}
+
 .cart-item-image{
   background-color: #ddd;;
   width: 70px;
@@ -20,13 +27,23 @@
 }
 
 .cart-item-price {
-  font-size: 25px;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(0,  0,  0 , 0.6);
+}
+.cart-item-totalPrice {
+  font-size: 18px;
   font-weight: 500;
 }
 
 .cart-item-content {
   padding: 0 35px 0 10px;
 }
+
+.cart-item-quantity {
+  color: #0060b1;
+  font-size: 13px;
+  }
 
 .button__remove-item{
   position: absolute;

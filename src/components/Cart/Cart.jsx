@@ -21,6 +21,7 @@ function Cart() {
       </div>
 
       <div className="cart-resume">{formatCurrency(totalPrice, 'BRL')}</div>
+      <button className="go-cart-button">Concluir compra</button>
     </section>
   );
 }

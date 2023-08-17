@@ -1,29 +1,34 @@
 import React, { useContext } from 'react';
 import './ProductCard.css';
-import {BsCartPlusFill} from 'react-icons/bs';
+import { BsCartPlusFill } from 'react-icons/bs';
 import propTypes from 'prop-types';
 import formatCurrency from '../../utils/formatCurrency';
 import AppContext from '../../context/AppContext';
 
-function ProductCard({data}) {
-  const {title, thumbnail, price}  = data;
+function ProductCard({ data }) {
+  const { title, thumbnail, price } = data;
 
   const { cartItems, setCartItems } = useContext(AppContext);
 
   const handleAddCart = () => {
-    // outra forma de fazer
-    // const updateCartItems = cartItems;
-    // updateCartItems.push(data);
-    // setCartItems(updateCartItems);
-    setCartItems([...cartItems, data]);
+    const existingItem = cartItems.find((item) => item.id === data.id);
+
+    if (existingItem) {
+      const updatedItems = cartItems.map((item) =>
+        item.id === data.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      setCartItems(updatedItems);
+    } else {
+      setCartItems([...cartItems, { ...data, quantity: 1 }]);
+    }
   };
 
-  return ( 
+  return (
     <section className="product-card">
-      <img 
-        src={thumbnail.replace(/\w\.jpg/gi, 'W.jpg')} 
-        alt="product" 
-        className="card__image" 
+      <img
+        src={thumbnail.replace(/\w\.jpg/gi, 'W.jpg')}
+        alt="product"
+        className="card__image"
       />
 
       <div className="card__infos">
@@ -31,14 +36,13 @@ function ProductCard({data}) {
         <h2 className="card__title">{title}</h2>
       </div>
 
-      <button 
-        type="button" 
+      <button
+        type="button"
         className="button__add-cart"
-        onClick={ handleAddCart }
+        onClick={handleAddCart}
       >
-        <BsCartPlusFill/>
+        <BsCartPlusFill />
       </button>
-      
     </section>
   );
 }
