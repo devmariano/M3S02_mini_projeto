@@ -11,8 +11,9 @@ import PageCheckout from './pages/pageCheckout';
 
 function App() {
   return (  
-    <Provider>
-      <Router>
+
+    <Router>
+      <Provider>
         <Routes>
           <Route path="/" element={<PageHome/>}/>
           <Route path="/produtos" element={<PageProducts/>} />
@@ -20,8 +21,9 @@ function App() {
           <Route path="/checkout" element={<PageCheckout/>} />
           <Route path="*" element={<PageNotFound/>} />
         </Routes>
-      </Router>
-    </Provider>
+      </Provider>
+    </Router>
+   
   );
 }
 
