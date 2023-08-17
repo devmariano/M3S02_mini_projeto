@@ -7,17 +7,24 @@ import formatCurrency from '../../utils/formatCurrency';
 
 function Cart() {
 
-  const {cartItems, isCartVisible } = useContext(AppContext);
+  const {cartItems, setCartItems, isCartVisible } = useContext(AppContext);
   // acc é o acumulador do reduce, neste caso começa com 0
   const totalPrice = cartItems.reduce((acc, item) => {
     return item.price + acc;
   },0);
 
+  const updateQuantity = (itemId, newQuantity) => {
+    const updatedItems = cartItems.map((item) =>
+      item.id === itemId ? { ...item, quantity: newQuantity } : item
+    );
+    setCartItems(updatedItems);
+  };
+
   return ( 
     <section className={`cart ${isCartVisible ? 'cart--active' : ''}`}>
       <span className="cart-items-title">RESUMO DO CARRINHO</span>
       <div className="cart-items">
-        {cartItems.map((cartItem) => <CartItem key={`${cartItem.id}`} data={cartItem} />)}
+        {cartItems.map((cartItem) => <CartItem key={`${cartItem.id}`} data={cartItem} updateQuantity={updateQuantity}/>)}
       </div>
 
       <div className="cart-resume">{formatCurrency(totalPrice, 'BRL')}</div>

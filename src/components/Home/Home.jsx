@@ -1,15 +1,15 @@
 import React, { useEffect, useContext} from 'react';
-import './Products.css';
-import fetchProducts from '../../api/fetchProdutcs';
+import './Home.css';
+import fetchPromoProducts from '../../api/fetchPromoProducts';
 import ProductCard from '../ProductCard/ProductCard';
 import Loading from '../Loading/Loading';
 import AppContext from '../../context/AppContext';
 
-function Products() {
+function Home() {
   const {products, setProducts, loading, setLoading} = useContext(AppContext);
 
   useEffect(() => {
-    fetchProducts('pc gamer').then((response) => {
+    fetchPromoProducts('samsung').then((response) => {
       setProducts(response);
       console.log(response);
       setLoading(false);
@@ -20,10 +20,11 @@ function Products() {
   return ( 
     (loading && <Loading/>) || (
       <section className="products container">
+        Promoções SAMSUMG
         {products.map((product) => <ProductCard key={product.id} data={product} />)}
       </section>
     )
   );
 }
 
-export default Products;
+export default Home;

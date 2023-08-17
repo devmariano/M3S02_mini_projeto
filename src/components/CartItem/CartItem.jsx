@@ -18,6 +18,23 @@ function CartItem( {data}) {
     setCartItems(updatedItems);
   };
 
+  const handleIncreaseQuantity = () => {
+    updateQuantity(id, quantity + 1);
+  };
+
+  const handleDecreaseQuantity = () => {
+    if (quantity > 1) {
+      updateQuantity(id, quantity - 1);
+    }
+  };
+
+  const updateQuantity = (itemId, newQuantity) => {
+    const updatedItems = cartItems.map((item) =>
+      item.id === itemId ? { ...item, quantity: newQuantity } : item
+    );
+    setCartItems(updatedItems);
+  };
+
 
   return ( 
     <section className="cart-item">
@@ -30,7 +47,14 @@ function CartItem( {data}) {
         <h3 className="cart-item-title">{title}</h3>
         <h3 className="cart-item-price">{formatCurrency(price, 'BRL')}</h3>
         <div className="cart-item-details">
-          <span className="cart-item-quantity">{quantity} {quantity === 1 ? 'item' : 'itens'}</span>
+
+          <div className="cart-item-quantity-controls">
+            <button onClick={handleIncreaseQuantity}>+</button>
+            <span className="cart-item-quantity"> {quantity} </span>
+            <button onClick={handleDecreaseQuantity}>-</button>
+          </div>
+
+          {/* <span className="cart-item-quantity">{quantity} {quantity === 1 ? 'item' : 'itens'}</span> */}
           <span className="cart-item-totalPrice">{formatCurrency(price * quantity, 'BRL')}</span>
         </div>
         <button 
