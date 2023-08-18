@@ -1,6 +1,6 @@
 import AppContext from '../../context/AppContext';
 import './Checkout.css';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import formatCurrency from '../../utils/formatCurrency';
 import { BsCart2, BsCreditCard, BsFillCheckCircleFill, BsArrowRight } from 'react-icons/bs';
@@ -8,7 +8,7 @@ import { FaCcVisa, FaCcMastercard, FaBarcode } from 'react-icons/fa';
 import {MdOutlinePix} from 'react-icons/md';
 
 function Checkout() {
-  const { cartItems, totalPrice, totalItems } = useContext(AppContext);
+  const { cartItems, totalPrice, totalItems, setCartItems } = useContext(AppContext);
 
   const [payment, setPayment] = useState(false);
   const [selectedPayment, setSelectedPayment] = useState(''); 
@@ -27,6 +27,13 @@ function Checkout() {
   const handlePay = () => {
     setPayment(true);
   };
+
+  useEffect(() => {
+    if (payment) {
+      setCartItems([]);
+    }
+  }, [payment]);
+
   return (
 
     <div>
