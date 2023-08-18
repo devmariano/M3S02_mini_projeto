@@ -1,17 +1,17 @@
 import React from 'react';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import Cart from '../components/Cart/Cart';
+import Checkout from '../components/Checkout/Checkout';
+
 
 
 function PageCheckout () {
   return (
-    <div>
-      <Header />
-      <div className="container"></div>
-      <Cart />
-      <Footer />
-    </div>
+    <>
+      <Header/>
+      <Checkout/>
+      <Footer/>
+    </>
   );
 }
 

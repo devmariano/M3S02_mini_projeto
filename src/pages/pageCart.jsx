@@ -5,9 +5,6 @@ import Footer from '../components/Footer/Footer';
 
 
 
-
-
-
 function PageCart () {
   return (
     <>
@@ -17,7 +14,6 @@ function PageCart () {
     </>
   );
 }
-
 
 
 export default PageCart;
