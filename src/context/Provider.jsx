@@ -10,6 +10,7 @@ function Provider( {children} ) {
   const [loading, setLoading] = useState(true);
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
@@ -17,6 +18,13 @@ function Provider( {children} ) {
       return item.price * item.quantity + acc;
     }, 0);
     setTotalPrice(newTotalPrice);
+  }, [cartItems]);
+
+  useEffect(() => {
+    const newTotalItens = cartItems.reduce((acc, item) => {
+      return item.quantity + acc;
+    }, 0);
+    setTotalItems(newTotalItens);
   }, [cartItems]);
 
   useEffect(() => {
@@ -34,7 +42,8 @@ function Provider( {children} ) {
     isCartVisible, 
     setIsCartVisible,
     totalPrice, 
-    setTotalPrice
+    setTotalPrice,
+    totalItems
   };
 
   return ( 
