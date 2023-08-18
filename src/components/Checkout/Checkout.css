@@ -25,7 +25,7 @@
 }
 
 .checkout-radio {
-  border: #FC6B0F solid 1px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin-top: 20px;
 }
@@ -33,10 +33,22 @@
 .select-metod {
   display: flex;
   gap: 13px;
+  padding: 10px;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.checkout-radio.selected {
+  border-color: #FC6B0F; /* Laranja */
+  background-color: white;
 }
 
 .icon {
   font-size: 30px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.icon.selected {
   color: #FC6B0F;
 }
 
@@ -87,6 +99,14 @@
   min-width: 34%;
   padding: 3rem;
   margin: 0.5rem;
+}
+
+.confirm-payment{
+  display: flex;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: rgb(31, 144, 80);
+  font-size: 20px;
 }
 
 .checkout_page_buttons {
