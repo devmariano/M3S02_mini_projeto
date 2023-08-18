@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import {BsCart2} from 'react-icons/bs';
 import './CartButton.css';
-import AppContext from '../context/AppContext';
+import AppContext from '../../context/AppContext';
 
 function CartButton() {
 

@@ -16,3 +16,29 @@
   width: 160px;
   margin-right: 10px;
 }
+
+.cart-icon{
+  padding-top: 0;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0px;
+  }
+
+  .header > div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-wrapper img {
+    margin-bottom: 10px;
+  }
+
+  .cart-icon{
+    position:fixed;
+    top:20px;
+    right: 15px;
+    padding-top: 10px;
+  }
+}
