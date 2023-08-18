@@ -17,8 +17,11 @@ function Provider( {children} ) {
       return item.price * item.quantity + acc;
     }, 0);
     setTotalPrice(newTotalPrice);
+  }, [cartItems]);
+
+  useEffect(() => {
     setIsCartVisible(false);
-  }, [cartItems, location]);
+  }, [location]);
 
 
   const value= {

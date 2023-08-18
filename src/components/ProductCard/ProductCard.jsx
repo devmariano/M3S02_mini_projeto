@@ -4,11 +4,16 @@ import { BsCartPlusFill } from 'react-icons/bs';
 import propTypes from 'prop-types';
 import formatCurrency from '../../utils/formatCurrency';
 import AppContext from '../../context/AppContext';
+import { useLocation } from 'react-router-dom';
 
 function ProductCard({ data }) {
   const { title, thumbnail, price } = data;
 
   const { cartItems, setCartItems } = useContext(AppContext);
+
+  const location = useLocation();
+
+  const isHome = location.pathname === '/';
 
   const handleAddCart = () => {
     const existingItem = cartItems.find((item) => item.id === data.id);
@@ -32,7 +37,10 @@ function ProductCard({ data }) {
       />
 
       <div className="card__infos">
-        <h2 className="card__price">{formatCurrency(price, 'BRL')}</h2>
+        { isHome &&  <h2 className="card__price_promo">de: {formatCurrency(price*1.5, 'BRL')}</h2>}
+        { isHome &&  <h2 className="card__price">por: {formatCurrency(price, 'BRL')}</h2>}
+        { !isHome &&  <h2 className="card__price">{formatCurrency(price, 'BRL')}</h2>}
+        {/* <h2 className="card__price">{formatCurrency(price, 'BRL')}</h2> */}
         <h2 className="card__title">{title}</h2>
       </div>
 

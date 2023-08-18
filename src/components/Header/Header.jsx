@@ -10,6 +10,7 @@ function Header() {
   const location = useLocation();
 
   const isCartOrCheckoutRoute = location.pathname === '/carrinho' || location.pathname === '/checkout';
+  const isHome = location.pathname === '/';
 
   return (
     <header className="header">
@@ -17,7 +18,7 @@ function Header() {
         <div className="logo-wrapper">
           <Link to={'/'}><img src={logo} alt="Logotipo" /></Link>
         </div>
-        {!isCartOrCheckoutRoute && <SearchBar/>}
+        {!isCartOrCheckoutRoute && !isHome &&  <SearchBar/>}
         <div className="cart-icon">
           {!isCartOrCheckoutRoute && <CartButton/>}
         </div>
