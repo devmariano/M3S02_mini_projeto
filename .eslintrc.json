@@ -19,10 +19,7 @@
             "error",
             2
         ],
-        "linebreak-style": [
-            "error",
-            "CRLF"
-        ],
+        "linebreak-style": 0,
         "quotes": [
             "error",
             "single"
