@@ -18,12 +18,12 @@ function Header() {
         <div className="logo-wrapper">
           <Link to={'/'}><img src={logo} alt="Logotipo" /></Link>
         </div>
-        {!isCartOrCheckoutRoute && !isHome &&  <SearchBar/>}
-        <div className="cart-icon">
-          {!isCartOrCheckoutRoute && <CartButton/>}
+        {!isCartOrCheckoutRoute && !isHome && <SearchBar data-testid="search-bar" />}
+        <div className="cart-icon" data-testid="cart-button">
+          {!isCartOrCheckoutRoute && <CartButton />}
         </div>
       </div>
-      <NavBar/>
+      <NavBar />
     </header>
   );
 }

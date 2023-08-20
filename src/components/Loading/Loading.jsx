@@ -1,11 +1,11 @@
 import React from 'react';
-import {AiOutlineLoading3Quarters} from 'react-icons/ai';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 import './Loading.css';
 
 function Loading() {
-  return <AiOutlineLoading3Quarters className="loading"/>;
- 
+  // adicionado o data-testid="loading-icon somente para o teste jest
+  return <AiOutlineLoading3Quarters className="loading" data-testid="loading-icon" />;
 }
 
 export default Loading;
